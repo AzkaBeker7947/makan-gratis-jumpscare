@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sekolah Makan Siang Gratis Prabowo</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #00c6ff, #ffffff);
+        }
+        .container {
+            background: #04b9ff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            width: 90%;
+            max-width: 400px;
+        }
+        h1, h2, p {
+            color: white;
+            text-shadow: 2px 2px 4px black;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            margin: 10px;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: 0.3s ease-in-out;
+            box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+        }
+        button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+        input {
+            position: absolute;
+            top : 51%;
+            left : 1%;
+            width: 90%;
+            padding: 12px;
+            font-size: 16px;
+            border: 2px solid #007bff;
+            border-radius: 8px;
+            text-align: center;
+            outline: none;
+            margin-top: 10px;
+        }
+        .hidden {
+            display: none;
+        }
+        #jumpscare {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+        #jumpscare video {
+            position: fixed;
+            width: 180%;
+            height: 100%;
+            left : -80%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Sekolah Yang Mendapatkan Makan Siang Gratis Prabowo</h1>
+        <p>Pilih jenjang sekolah:</p>
+        <button onclick="goToNextPage()">SMP</button>
+        <button onclick="goToNextPage()">SD</button>
+        <button onclick="goToNextPage()">SMA</button>
+    </div>
+
+    <script>
+        function goToNextPage() {
+            document.body.innerHTML = `
+                <div class="container">
+                    <h2>Tulis Nama Sekolah dengan Huruf Besar</h2>
+                    <input type="text" id="schoolName" placeholder="Contoh: SMP NEGERI 1">
+                    <br><br>
+                    <button onclick="showJumpscare()">Cari</button>
+                </div>
+            `;
+        }
+
+        function showJumpscare() {
+            let input = document.getElementById("schoolName").value;
+            if (input === input.toUpperCase() && input.trim() !== "") {
+                document.body.innerHTML = `
+                    <div id="jumpscare">
+                        <video autoplay>
+                            <source src="video.mp4" type="video/mp4">
+                            Video tidak didukung.
+                        </video>
+                    </div>
+                `;
+            } else {
+                alert("Harap masukkan nama sekolah dengan huruf besar!");
+            }
+        }
+    </script>
+
+</body>
+</html>
